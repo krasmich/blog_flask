@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Данные статьи {% endblock %}
+
+{% block body %}
+    <h1>Статья: {{ article.title }}</h1>
+    <figure>
+        <blockquote class="blockquote">
+            <p>{{ article.text }}</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            Автор: <a href="{{ url_for('users.user_list', pk=article.author.id) }}">{{ article.author }}</a>
+        </figcaption>
+    </figure>
+{% endblock %}
