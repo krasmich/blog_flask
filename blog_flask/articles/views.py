@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect
-from blog_flask.users.views import USERS
+from flask_login import login_required
 
 articles = Blueprint('articles', __name__, url_prefix='/articles', static_folder='../static')
 
@@ -11,7 +11,7 @@ ARTICLES = [
                 'Integer imperdiet imperdiet semper. Sed porta magna vitae elit '
                 'accumsan, vel commodo massa porttitor. Aenean suscipit libero quam, '
                 'ut vestibulum ex sodales ornare.',
-        'author': USERS[1],
+        'author': 1,
     },
     {
         'id': 2,
@@ -20,7 +20,7 @@ ARTICLES = [
                 'Integer imperdiet imperdiet semper. Sed porta magna vitae elit '
                 'accumsan, vel commodo massa porttitor. Aenean suscipit libero quam, '
                 'ut vestibulum ex sodales ornare.',
-        'author': USERS[2],
+        'author': 2,
     },
     {
         'id': 3,
@@ -29,7 +29,7 @@ ARTICLES = [
                 'Integer imperdiet imperdiet semper. Sed porta magna vitae elit '
                 'accumsan, vel commodo massa porttitor. Aenean suscipit libero quam, '
                 'ut vestibulum ex sodales ornare.',
-        'author': USERS[3],
+        'author': 3,
     }
 ]
 
@@ -43,6 +43,7 @@ def articles_list():
 
 
 @articles.route('/<int:pk>/')
+@login_required
 def articles_info(pk: int):
     article = None
     for value in ARTICLES:

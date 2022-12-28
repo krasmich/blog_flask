@@ -1,4 +1,12 @@
 [[package]]
+category = "main"
+description = "A Pythonic Helper for DBAPI-2.0 SQL Access"
+name = "antiorm"
+optional = false
+python-versions = "*"
+version = "1.2.1"
+
+[[package]]
 category = "dev"
 description = "Atomic file writes."
 marker = "sys_platform == \"win32\""
@@ -43,6 +51,45 @@ version = "0.4.6"
 
 [[package]]
 category = "main"
+description = "Databases for Humans"
+name = "db"
+optional = false
+python-versions = "*"
+version = "0.1.1"
+
+[package.dependencies]
+antiorm = "*"
+
+[[package]]
+category = "main"
+description = "DNS toolkit"
+name = "dnspython"
+optional = false
+python-versions = ">=3.6,<4.0"
+version = "2.2.1"
+
+[package.extras]
+curio = ["curio (>=1.2,<2.0)", "sniffio (>=1.1,<2.0)"]
+dnssec = ["cryptography (>=2.6,<37.0)"]
+doh = ["h2 (>=4.1.0)", "httpx (>=0.21.1)", "requests (>=2.23.0,<3.0.0)", "requests-toolbelt (>=0.9.1,<0.10.0)"]
+idna = ["idna (>=2.1,<4.0)"]
+trio = ["trio (>=0.14,<0.20)"]
+wmi = ["wmi (>=1.5.1,<2.0.0)"]
+
+[[package]]
+category = "main"
+description = "A robust email address syntax and deliverability validation library."
+name = "email-validator"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
+version = "1.3.0"
+
+[package.dependencies]
+dnspython = ">=1.15.0"
+idna = ">=2.0.0"
+
+[[package]]
+category = "main"
 description = "A simple framework for building complex web applications."
 name = "flask"
 optional = false
@@ -58,6 +105,67 @@ itsdangerous = ">=2.0"
 [package.extras]
 async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
+
+[[package]]
+category = "main"
+description = "User authentication and session management for Flask."
+name = "flask-login"
+optional = false
+python-versions = ">=3.7"
+version = "0.6.2"
+
+[package.dependencies]
+Flask = ">=1.0.4"
+Werkzeug = ">=1.0.1"
+
+[[package]]
+category = "main"
+description = "Add SQLAlchemy support to your Flask application."
+name = "flask-sqlalchemy"
+optional = false
+python-versions = ">=3.7"
+version = "3.0.2"
+
+[package.dependencies]
+Flask = ">=2.2"
+SQLAlchemy = ">=1.4.18"
+
+[[package]]
+category = "main"
+description = "Form rendering, validation, and CSRF protection for Flask with WTForms."
+name = "flask-wtf"
+optional = false
+python-versions = ">=3.6"
+version = "1.0.1"
+
+[package.dependencies]
+Flask = "*"
+WTForms = "*"
+itsdangerous = "*"
+
+[package.extras]
+email = ["email-validator"]
+
+[[package]]
+category = "main"
+description = "Lightweight in-process concurrent programming"
+marker = "python_version >= \"3\" and (platform_machine == \"aarch64\" or platform_machine == \"ppc64le\" or platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"win32\" or platform_machine == \"WIN32\")"
+name = "greenlet"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+version = "2.0.1"
+
+[package.extras]
+docs = ["sphinx", "docutils (<0.18)"]
+test = ["objgraph", "psutil", "faulthandler"]
+
+[[package]]
+category = "main"
+description = "Internationalized Domain Names in Applications (IDNA)"
+name = "idna"
+optional = false
+python-versions = ">=3.5"
+version = "3.4"
 
 [[package]]
 category = "main"
@@ -147,6 +255,40 @@ checkqa-mypy = ["mypy (v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
+category = "main"
+description = "Database Abstraction Library"
+name = "sqlalchemy"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
+version = "1.4.45"
+
+[package.dependencies]
+[package.dependencies.greenlet]
+python = ">=3"
+version = "!=0.4.17"
+
+[package.extras]
+aiomysql = ["greenlet (!=0.4.17)", "aiomysql"]
+aiosqlite = ["typing_extensions (!=3.10.0.1)", "greenlet (!=0.4.17)", "aiosqlite"]
+asyncio = ["greenlet (!=0.4.17)"]
+asyncmy = ["greenlet (!=0.4.17)", "asyncmy (>=0.2.3,<0.2.4 || >0.2.4)"]
+mariadb_connector = ["mariadb (>=1.0.1,<1.1.2 || >1.1.2)"]
+mssql = ["pyodbc"]
+mssql_pymssql = ["pymssql"]
+mssql_pyodbc = ["pyodbc"]
+mypy = ["sqlalchemy2-stubs", "mypy (>=0.910)"]
+mysql = ["mysqlclient (>=1.4.0,<2)", "mysqlclient (>=1.4.0)"]
+mysql_connector = ["mysql-connector-python"]
+oracle = ["cx_oracle (>=7,<8)", "cx_oracle (>=7)"]
+postgresql = ["psycopg2 (>=2.7)"]
+postgresql_asyncpg = ["greenlet (!=0.4.17)", "asyncpg"]
+postgresql_pg8000 = ["pg8000 (>=1.16.6,<1.29.0 || >1.29.0)"]
+postgresql_psycopg2binary = ["psycopg2-binary"]
+postgresql_psycopg2cffi = ["psycopg2cffi"]
+pymysql = ["pymysql (<1)", "pymysql"]
+sqlcipher = ["sqlcipher3-binary"]
+
+[[package]]
 category = "dev"
 description = "Measures the displayed width of unicode strings in a terminal"
 name = "wcwidth"
@@ -168,16 +310,39 @@ MarkupSafe = ">=2.1.1"
 [package.extras]
 watchdog = ["watchdog"]
 
+[[package]]
+category = "main"
+description = "Form validation and rendering for Python web development."
+name = "wtforms"
+optional = false
+python-versions = ">=3.7"
+version = "3.0.1"
+
+[package.dependencies]
+MarkupSafe = "*"
+
+[package.extras]
+email = ["email-validator"]
+
 [metadata]
-content-hash = "fc4180428fefecea6c451527e510e131a70c4264d6af552f5a0ff53669c7ec8b"
+content-hash = "b064c5d3d94355dd90a19eb14af9fdafaeb43df5e37a65323534b86504cd1656"
 python-versions = "^3.10"
 
 [metadata.files]
+antiorm = []
 atomicwrites = []
 attrs = []
 click = []
 colorama = []
+db = []
+dnspython = []
+email-validator = []
 flask = []
+flask-login = []
+flask-sqlalchemy = []
+flask-wtf = []
+greenlet = []
+idna = []
 itsdangerous = []
 jinja2 = []
 markupsafe = []
@@ -186,5 +351,7 @@ packaging = []
 pluggy = []
 py = []
 pytest = []
+sqlalchemy = []
 wcwidth = []
 werkzeug = []
+wtforms = []
