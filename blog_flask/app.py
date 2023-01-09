@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_migrate import Migrate
 
 from blog_flask.articles.views import articles
 from blog_flask.auth.views import auth, login_manager
@@ -13,6 +14,7 @@ def create_app() -> Flask:
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
     login_manager.init_app(app)
+    Migrate(app, db)
 
     register_blueprints(app)
     return app
