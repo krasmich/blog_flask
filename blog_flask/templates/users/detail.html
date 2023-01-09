@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Данные пользователя {% endblock %}
+
+{% block body %}
+    <h1>Пользователь: {{ user.id }}</h1>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <strong>Имя:</strong> {{ user.name }}
+        </li>
+        <li class="list-group-item">
+            <strong>Почта:</strong> <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+        </li>
+    </ul>
+{% endblock %}
