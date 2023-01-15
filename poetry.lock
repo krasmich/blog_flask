@@ -385,7 +385,7 @@ MarkupSafe = "*"
 email = ["email-validator"]
 
 [metadata]
-content-hash = "55db0b85d7f218c64c0e6e925f293b0075927ddd862e625f75ab8d59a68e78da"
+content-hash = "3c9905498605c285a19c7eb248c15311b7c5ee043465d81e5705a73bc085bc8d"
 python-versions = "^3.10"
 
 [metadata.files]
