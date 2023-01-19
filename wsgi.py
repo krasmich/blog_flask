@@ -11,8 +11,6 @@ def init_db():
     flask init-db
     """
 
-    from blog_flask.users.models import Users
-
     db.create_all()
     print('done!')
 
@@ -24,7 +22,7 @@ def create_users():
     flask create-users
     > done! created users: <User #1 'admin'> <User #2 'james'>
     """
-    from blog_flask.users.models import Users
+    from blog_flask.models import Users
     from werkzeug.security import generate_password_hash
 
     admin = Users(

@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash
 
 from blog_flask.database import db
 from blog_flask.forms.user import UserRegisterForm
-from blog_flask.users.models import Users
+from blog_flask.models import Users
 
 users = Blueprint('users', __name__, url_prefix='/users', static_folder='../static')
 

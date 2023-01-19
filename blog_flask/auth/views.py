@@ -2,7 +2,7 @@ from flask import Blueprint, redirect, url_for, render_template, flash, request
 from flask_login import login_required, logout_user, login_user, LoginManager
 
 from blog_flask.auth.models import LoginForm
-from blog_flask.users.models import Users
+from blog_flask.models import Users
 
 auth = Blueprint('auth', __name__, static_folder='../static')
 

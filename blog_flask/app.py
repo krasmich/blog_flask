@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 
 from blog_flask.articles.views import articles
 from blog_flask.auth.views import auth, login_manager
+from blog_flask.authors.views import authors
 from blog_flask.database import db
 from blog_flask.users.views import users
 
@@ -24,3 +25,4 @@ def register_blueprints(app: Flask):
     app.register_blueprint(users)
     app.register_blueprint(articles)
     app.register_blueprint(auth)
+    app.register_blueprint(authors)
