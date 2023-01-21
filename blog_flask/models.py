@@ -1,9 +1,17 @@
 from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 from werkzeug.security import check_password_hash
-from sqlalchemy import ForeignKey, func, Column, Integer, DateTime
+from sqlalchemy import ForeignKey, func, Column, Integer, DateTime, Table
 from datetime import datetime
 from blog_flask.database import db
+
+
+article_tag_associations_table = Table(
+    'article_tag_association',
+    db.metadata,
+    db.Column('article_id', db.Integer, ForeignKey('articles.id'), nullable=False),
+    db.Column('tag_id', db.Integer, ForeignKey('tags.id'), nullable=False),
+)
 
 
 class Users(db.Model, UserMixin):
@@ -41,4 +49,13 @@ class Article(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     author = relationship('Author', back_populates='articles')
+    tags = relationship('Tag', secondary=article_tag_associations_table, back_populates='articles')
 
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+
+    articles = relationship('Article', secondary=article_tag_associations_table, back_populates='tags')

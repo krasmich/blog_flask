@@ -1,3 +1,5 @@
+import click
+
 from blog_flask.app import create_app
 from blog_flask.database import db
 
@@ -59,3 +61,19 @@ def create_users():
     db.session.commit()
 
     print('done! created users')
+
+
+@app.cli.command('create-init-tags')
+def create_init_tags():
+    """
+    Run in your terminal:
+    ➜ flask create-tags
+    """
+    from blog_flask.models import Tag
+
+    with app.app_context():
+        tags = ('flask', 'django', 'python', 'gb', 'sqlite')
+        for item in tags:
+            db.session.add(Tag(name=item))
+        db.session.commit()
+    click.echo(f'Created tags: {", ".join(tags)}')
