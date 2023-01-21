@@ -13,7 +13,7 @@ users = Blueprint('users', __name__, url_prefix='/users', static_folder='../stat
 @users.route('register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('user.detail', pk=current_user.id))
+        return redirect(url_for('users.get_user', pk=current_user.id))
 
     form = UserRegisterForm(request.form)
     errors = []
