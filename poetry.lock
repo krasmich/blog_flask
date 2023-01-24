@@ -123,6 +123,22 @@ dotenv = ["python-dotenv"]
 
 [[package]]
 category = "main"
+description = "Simple and extensible admin interface framework for Flask"
+name = "flask-admin"
+optional = false
+python-versions = ">=3.6"
+version = "1.6.0"
+
+[package.dependencies]
+Flask = ">=0.7"
+wtforms = "*"
+
+[package.extras]
+aws = ["boto"]
+azure = ["azure-storage-blob"]
+
+[[package]]
+category = "main"
 description = "User authentication and session management for Flask."
 name = "flask-login"
 optional = false
@@ -385,7 +401,7 @@ MarkupSafe = "*"
 email = ["email-validator"]
 
 [metadata]
-content-hash = "3c9905498605c285a19c7eb248c15311b7c5ee043465d81e5705a73bc085bc8d"
+content-hash = "908d8781758b01645c2cbdaed772ec4363f9f26c4d2bebfb56247064af820635"
 python-versions = "^3.10"
 
 [metadata.files]
@@ -399,6 +415,7 @@ db = []
 dnspython = []
 email-validator = []
 flask = []
+flask-admin = []
 flask-login = []
 flask-migrate = []
 flask-sqlalchemy = []

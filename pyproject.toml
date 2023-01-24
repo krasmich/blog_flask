@@ -16,6 +16,7 @@ Flask-Migrate = "^4.0.1"
 psycopg2-binary = "^2.9.5"
 psycopg2 = "^2.9.5"
 WTForms = "^3.0.1"
+Flask-Admin = "^1.6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
