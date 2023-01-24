@@ -3,8 +3,8 @@ from sqlalchemy.orm import relationship
 from werkzeug.security import check_password_hash
 from sqlalchemy import ForeignKey, func, Column, Integer, DateTime, Table
 from datetime import datetime
-from blog_flask.database import db
 
+from blog_flask.config import db
 
 article_tag_associations_table = Table(
     'article_tag_association',

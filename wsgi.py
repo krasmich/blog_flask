@@ -1,7 +1,7 @@
 import click
 
 from blog_flask.app import create_app
-from blog_flask.database import db
+from blog_flask.config import db
 
 app = create_app()
 

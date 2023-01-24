@@ -1,12 +1,11 @@
 from flask import Flask
 from flask_migrate import Migrate
 
-from blog_flask.admin_init import admin
+from blog_flask.config import admin, db
 
 from blog_flask.articles.views import articles
 from blog_flask.auth.views import auth, login_manager
 from blog_flask.authors.views import authors
-from blog_flask.database import db
 from blog_flask.users.views import users
 
 
@@ -27,6 +26,7 @@ def create_app() -> Flask:
 
 def register_blueprints(app: Flask):
     from blog_flask import admin
+
     app.register_blueprint(users)
     app.register_blueprint(articles)
     app.register_blueprint(auth)

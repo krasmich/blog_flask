@@ -3,7 +3,8 @@ from flask_login import login_required, current_user
 from sqlalchemy.orm import joinedload
 from werkzeug.exceptions import NotFound
 
-from blog_flask.database import db
+from blog_flask.config import db
+# from blog_flask.database import db
 from blog_flask.forms.article import CreateArticleForm
 from blog_flask.models import Article, Author, Tag
 
