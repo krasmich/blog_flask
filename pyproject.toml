@@ -6,8 +6,8 @@ authors = ["krasmich <kraskovmichael@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-flask = "^2.2.2"
-Flask-SQLAlchemy = "^3.0.2"
+flask = "1.1.4"
+Flask-SQLAlchemy = "2.5.1"
 db = "^0.1.1"
 flask-login = "^0.6.2"
 Flask-WTF = "^1.0.1"
@@ -17,6 +17,11 @@ psycopg2-binary = "^2.9.5"
 psycopg2 = "^2.9.5"
 WTForms = "^3.0.1"
 Flask-Admin = "^1.6.0"
+Flask-COMBO-JSONAPI = "^1.1.0"
+markupsafe = "2.0.1"
+apispec = "4.7.1"
+ComboJSONAPI = "1.1.1"
+PyYAML = "5.4.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
