@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 
-{% block title %} Данные статьи {% endblock %}
+{% block title %}
+    {{ article.title }}
+{% endblock %}
 
 {% block body %}
-    <h1>Статья: {{ article.title }}</h1>
-    <figure>
-        <blockquote class="blockquote">
-            <p>{{ article.text }}</p>
-        </blockquote>
-        <figcaption class="blockquote-footer">
-            Автор: <a href="{{ url_for('users.user_list', pk=article.author.id) }}">{{ article.author }}</a>
-        </figcaption>
-    </figure>
+    <div class="row">
+        <h1>{{ article.title }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">{{ article.text }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div><small class="text-muted">Author: {{ article.author.user.name }}</small></div>
+            <div><small class="text-muted">Created at: {{ article.created_at.strftime('%d-%m-%Y %H:%M:%S') }}</small></div>
+            <div><small class="text-muted">Updated at: {{ article.updated_at.strftime('%d-%m-%Y %H:%M:%S') }}</small></div>
+        </div>
+        <div class="col-6">
+            {% for tag in article.tags %}
+                <span class="badge bg-primary">{{ tag.name }}</span>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
