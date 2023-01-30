@@ -4,11 +4,17 @@
 
 {% block body %}
     <div class="row">
+        <h1>Список авторов:</h1>
+    </div>
+    <div class="row">
         <div class="col">
-            <h1>Список авторов:</h1>
-            {% for user in users %}
+            {% for author in authors %}
                 <ul>
-                    <li><a href="{{ url_for('users.get_user', pk=author.users.id) }}">{{ author.users.name }}</a></li>
+                    <li>
+                        <a href="{{ url_for('users.get_user', pk=author.user.id) }}">
+                            {{ author.user.name }} ({{ author.id }})
+                        </a>
+                    </li>
                 </ul>
             {% endfor %}
         </div>
