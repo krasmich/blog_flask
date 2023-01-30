@@ -3,9 +3,9 @@ from flask_login import current_user, login_user
 from werkzeug.exceptions import NotFound
 from werkzeug.security import generate_password_hash
 
-from blog_flask.database import db
+from blog_flask.config import db
 from blog_flask.forms.user import UserRegisterForm
-from blog_flask.users.models import Users
+from blog_flask.models import Users
 
 users = Blueprint('users', __name__, url_prefix='/users', static_folder='../static')
 
@@ -13,7 +13,7 @@ users = Blueprint('users', __name__, url_prefix='/users', static_folder='../stat
 @users.route('register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('user.detail', pk=current_user.id))
+        return redirect(url_for('users.get_user', pk=current_user.id))
 
     form = UserRegisterForm(request.form)
     errors = []
