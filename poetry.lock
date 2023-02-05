@@ -264,6 +264,23 @@ email = ["email-validator"]
 
 [[package]]
 category = "main"
+description = "WSGI HTTP Server for UNIX"
+name = "gunicorn"
+optional = false
+python-versions = ">=3.5"
+version = "20.1.0"
+
+[package.dependencies]
+setuptools = ">=3.0"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
+category = "main"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -521,7 +538,7 @@ MarkupSafe = "*"
 email = ["email-validator"]
 
 [metadata]
-content-hash = "03c24f787d916d3440afb320dc5704d21d1f4f6cb847426e23a5af38604cd2b7"
+content-hash = "82b5272283ebeeb1efdce3ca2e218c1640fad967f979c9c2cb7d1a56fd0f809e"
 python-versions = "^3.10"
 
 [metadata.files]
@@ -545,6 +562,7 @@ flask-login = []
 flask-migrate = []
 flask-sqlalchemy = []
 flask-wtf = []
+gunicorn = []
 idna = []
 itsdangerous = []
 jinja2 = []
