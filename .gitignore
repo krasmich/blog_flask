@@ -127,6 +127,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+instance/
+__pacache__/
 
 # Spyder project settings
 .spyderproject
