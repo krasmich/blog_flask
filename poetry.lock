@@ -289,6 +289,22 @@ version = "3.4"
 
 [[package]]
 category = "main"
+description = "Read metadata from Python packages"
+name = "importlib-metadata"
+optional = false
+python-versions = ">=3.7"
+version = "6.0.0"
+
+[package.dependencies]
+zipp = ">=0.5"
+
+[package.extras]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "sphinx-lint", "jaraco.tidelift (>=1.4)"]
+perf = ["ipython"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "packaging", "pyfakefs", "flufl.flake8", "pytest-perf (>=0.9.2)", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "pytest-flake8", "importlib-resources (>=1.3)"]
+
+[[package]]
+category = "main"
 description = "Read resources from Python packages"
 name = "importlib-resources"
 optional = false
@@ -562,7 +578,7 @@ docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo"
 testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "jaraco.itertools", "func-timeout", "jaraco.functools", "more-itertools", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "pytest-flake8"]
 
 [metadata]
-content-hash = "7a53746a73d0817a6eb4402517c84df34447defbfbf0d9d3fc73229d88a2e419"
+content-hash = "455d5cb98f7521bcb39468b42a6c0290d2d1057ba273ee1df9756c63c762f921"
 python-versions = "^3.10"
 
 [metadata.files]
@@ -588,6 +604,7 @@ flask-sqlalchemy = []
 flask-wtf = []
 gunicorn = []
 idna = []
+importlib-metadata = []
 importlib-resources = []
 itsdangerous = []
 jinja2 = []
