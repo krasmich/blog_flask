@@ -5,7 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
 from blog_flask.admin.views import CustomAdminIndexView
 
-API_URL = os.getenv('API_URL')
 db = SQLAlchemy()
 
 admin = Admin(

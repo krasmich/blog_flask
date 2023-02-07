@@ -6,7 +6,7 @@ from flask_login import login_required, current_user
 from sqlalchemy.orm import joinedload
 from werkzeug.exceptions import NotFound
 
-from blog_flask.config import db, API_URL
+from blog_flask.config import db
 from blog_flask.forms.article import CreateArticleForm
 from blog_flask.models import Article, Author, Tag
 
@@ -16,7 +16,7 @@ articles = Blueprint('articles', __name__, url_prefix='/articles', static_folder
 @articles.route('/', methods=['GET'])
 def article_list():
     articles: Article = Article.query.all()
-    count_articles: Dict = requests.get(f'{API_URL}/api/articles/event_get_count/').json()
+    count_articles: Dict = requests.get('http://127.0.0.1:5000/api/articles/event_get_count/').json()
     return render_template(
         'articles/list.html',
         articles=articles,

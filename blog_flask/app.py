@@ -29,6 +29,7 @@ def create_app() -> Flask:
     app.config["OPENAPI_VERSION"] = '3.0.0'
     app.config["OPENAPI_SWAGGER_UI_PATH"] = '/'
     app.config["OPENAPI_SWAGGER_UI_VERSION"] = '3.51.1'
+    app.config["API_URL"] = os.getenv('API_URL')
 
     # init apps
     db.init_app(app)
