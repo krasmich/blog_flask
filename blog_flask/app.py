@@ -1,3 +1,5 @@
+import os
+
 from combojsonapi.event import EventPlugin
 from combojsonapi.permission import PermissionPlugin
 from combojsonapi.spec import ApiSpecPlugin
@@ -14,10 +16,11 @@ from blog_flask.users.views import users
 
 def create_app() -> Flask:
     app = Flask(__name__)
+    # postgres://blog_flask_render_user:92RBplLYQmtIZnlskenzVldJYXCeHUt8@dpg-cfgi3ho2i3mg6pdboc3g-a.oregon-postgres.render.com/blog_flask_render
 
     # SQLAlchemy config
     app.config['SECRET_KEY'] = 'q82&+g0u9%u)g&j_-0p&%*v)wp1&-h9ki1agntbs3vho00o^f0'
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///blog.db"
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["FLASK_ADMIN_SWATCH"] = 'lux'
 
@@ -26,6 +29,7 @@ def create_app() -> Flask:
     app.config["OPENAPI_VERSION"] = '3.0.0'
     app.config["OPENAPI_SWAGGER_UI_PATH"] = '/'
     app.config["OPENAPI_SWAGGER_UI_VERSION"] = '3.51.1'
+    app.config["API_URL"] = os.getenv('API_URL')
 
     # init apps
     db.init_app(app)
